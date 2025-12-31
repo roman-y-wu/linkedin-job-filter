@@ -2,19 +2,31 @@ const jobListings = async (jobBoard) => {
   const hnsMap = new Map();
 
   const setDisplayPreference = (userSettings) => {
-    const updateDOM = (displayPreference) => {
+    const updateRemoveHiddenJobsDOM = (displayPreference) => {
       document.documentElement.setAttribute(
         "data-hns-remove-hidden-jobs",
         displayPreference
       );
     };
 
+    const updateHideSymbolsDOM = (hideSymbols) => {
+      document.documentElement.setAttribute(
+        "data-hns-hide-symbols",
+        hideSymbols
+      );
+    };
+
     const removeHiddenJobsStorageKey = `JobDisplayManager.${jobBoard.id}.removeHiddenJobs`;
-    updateDOM(userSettings[removeHiddenJobsStorageKey] || false);
+    const hideSymbolsStorageKey = `JobDisplayManager.${jobBoard.id}.hideSymbols`;
+
+    updateRemoveHiddenJobsDOM(userSettings[removeHiddenJobsStorageKey] || false);
+    updateHideSymbolsDOM(userSettings[hideSymbolsStorageKey] || false);
 
     chrome.storage.local.onChanged.addListener((changes) => {
       if (Object.hasOwn(changes, removeHiddenJobsStorageKey))
-        updateDOM(changes[removeHiddenJobsStorageKey].newValue);
+        updateRemoveHiddenJobsDOM(changes[removeHiddenJobsStorageKey].newValue);
+      if (Object.hasOwn(changes, hideSymbolsStorageKey))
+        updateHideSymbolsDOM(changes[hideSymbolsStorageKey].newValue);
     });
   };
 

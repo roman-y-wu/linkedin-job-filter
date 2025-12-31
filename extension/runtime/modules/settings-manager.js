@@ -19,11 +19,6 @@ restoreButton.addEventListener("click", async () => {
   animateButton(restoreButton, restored ? "success" : "failure");
 });
 
-const feedCharmButton = document.querySelector(".feed-charm-button");
-feedCharmButton.addEventListener("click", () =>
-  chrome.tabs.create({ url: "https://buymeacoffee.com/hide.n.seek" })
-);
-
 document.querySelectorAll("[data-hide-if-firefox]").forEach((element) => {
   if (isFirefox) element.style.display = "none";
 });

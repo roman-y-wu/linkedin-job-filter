@@ -1,4 +1,5 @@
 import { RemoveHiddenJobsManager } from "./remove-hidden-jobs-manager.js";
+import { HideSymbolsManager } from "./hide-symbols-manager.js";
 import { HiddenJobsListManager } from "./hidden-jobs-list-manager.js";
 import { UnblockAllJobsManager } from "./unblock-all-jobs-manager.js";
 
@@ -13,6 +14,7 @@ class JobBoardPopup {
     const localStorage = await chrome.storage.local.get();
     new UnblockAllJobsManager(jobBoard, localStorage);
     new RemoveHiddenJobsManager(jobBoard, localStorage);
+    new HideSymbolsManager(jobBoard, localStorage);
     new HiddenJobsListManager(jobBoard, localStorage);
   }
 }
