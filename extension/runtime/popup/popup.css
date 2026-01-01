@@ -499,9 +499,15 @@ html:has(#request-permissions[data-permissions-needed]) {
 .hidden-job-button svg {
   fill: var(--claude-text-muted);
   flex-shrink: 0;
-  height: 16px;
-  transition: fill var(--transition-fast);
-  width: 16px;
+  height: 20px;
+  opacity: 0.6;
+  transition: all var(--transition-fast);
+  width: 20px;
+}
+
+.hidden-job-button:hover svg {
+  fill: var(--claude-danger);
+  opacity: 1;
 }
 
 /* Add Keyword Input */
