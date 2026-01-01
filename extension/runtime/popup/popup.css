@@ -321,12 +321,7 @@ html:has(#request-permissions[data-permissions-needed]) {
 
 /* Job Board Logo in Options */
 .options-for-job-board .job-board-name {
-  border-radius: var(--radius-full);
-  margin-top: -8px;
-  max-height: 14px;
-  padding: 6px 14px;
-  background: var(--claude-bg-secondary);
-  border: 1px solid var(--claude-border);
+  display: none;
 }
 
 /* Search Input */
@@ -708,20 +703,30 @@ input[type="text"]:disabled {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar {
+/* Hide scrollbars on main container elements */
+body::-webkit-scrollbar,
+main::-webkit-scrollbar,
+.main-content::-webkit-scrollbar,
+.options-container::-webkit-scrollbar,
+.hidden-jobs-list-container::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Show scrollbar only for hidden jobs list */
+.hidden-jobs-list::-webkit-scrollbar {
   width: var(--scrollbar-width);
 }
 
-::-webkit-scrollbar-track {
+.hidden-jobs-list::-webkit-scrollbar-track {
   background: transparent;
 }
 
-::-webkit-scrollbar-thumb {
+.hidden-jobs-list::-webkit-scrollbar-thumb {
   background: var(--claude-text-muted);
   border-radius: var(--radius-full);
 }
 
-::-webkit-scrollbar-thumb:hover {
+.hidden-jobs-list::-webkit-scrollbar-thumb:hover {
   background: var(--claude-text-secondary);
 }
 
