@@ -2,8 +2,7 @@ html [data-hns-job-listing] {
   position: relative !important;
 }
 
-html[data-hns-remove-hidden-jobs="true"]
-  [data-hns-job-listing]:has([data-hns-blocked-attribute]) {
+html[data-hns-remove-hidden-jobs="true"] [data-hns-job-listing]:has([data-hns-blocked-attribute]) {
   display: none !important;
 }
 
@@ -62,10 +61,10 @@ html[data-hns-hide-symbols="true"] .hns-container {
 .hns-blocked-job {
   align-content: space-evenly !important;
   align-items: center !important;
-  backdrop-filter: blur(10px) !important;
-  background: hsl(0, 0%, 50%, 0.75) !important;
-  border-bottom: 1px solid #000000 !important;
-  border-top: 1px solid #000000 !important;
+  backdrop-filter: blur(20px) !important;
+  background: rgba(15, 23, 42, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
   box-sizing: border-box !important;
   cursor: default !important;
   flex-direction: row !important;
@@ -104,30 +103,34 @@ html[data-hns-hide-symbols="true"] .hns-container {
 }
 
 .hns-block-button {
-  background: hsl(0, 0%, 50%, 0.25) !important;
+  background: rgba(15, 23, 42, 0.1) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
   border-radius: 50% !important;
+  bottom: 12px !important;
   cursor: pointer !important;
   display: grid !important;
   height: 18px !important;
-  margin: 10px !important;
-  padding: 15px !important;
+  left: 12px !important;
+  padding: 12px !important;
   pointer-events: auto !important;
-  transition: background-color 200ms ease-out !important;
+  position: absolute !important;
+  transition: all 200ms ease-out !important;
   width: 18px !important;
 }
 
 .hns-block-button:hover {
-  background: hsl(0, 0%, 50%, 0.45) !important;
+  background: rgba(15, 23, 42, 0.2) !important;
+  transform: scale(1.1) !important;
 }
 
 .hns-block-button:active {
-  background: hsl(0, 0%, 50%, 0.55) !important;
+  background: rgba(15, 23, 42, 0.3) !important;
+  transform: scale(0.95) !important;
 }
 
 .hns-block-button path {
-  d: path(
-    "M 22.446 46.837 C 19.513 46.837 16.754 46.279 14.171 45.162 C 11.588 44.045 9.329 42.52 7.396 40.587 C 5.463 38.654 3.946 36.395 2.846 33.812 C 1.746 31.229 1.196 28.454 1.196 25.487 C 1.196 22.587 1.754 19.845 2.871 17.262 C 3.988 14.679 5.504 12.429 7.421 10.512 C 9.338 8.595 11.588 7.079 14.171 5.962 C 16.754 4.845 19.513 4.287 22.446 4.287 C 25.379 4.287 28.138 4.845 30.721 5.962 C 33.304 7.079 35.554 8.595 37.471 10.512 C 39.388 12.429 40.913 14.679 42.046 17.262 C 43.179 19.845 43.746 22.587 43.746 25.487 C 43.746 28.454 43.188 31.229 42.071 33.812 C 40.954 36.395 39.429 38.654 37.496 40.587 C 35.563 42.52 33.304 44.045 30.721 45.162 C 28.138 46.279 25.379 46.837 22.446 46.837 Z M 22.446 42.137 C 27.046 42.137 30.954 40.52 34.171 37.287 C 37.388 34.054 38.996 30.12 38.996 25.487 C 38.996 23.687 38.713 21.937 38.146 20.237 C 37.579 18.537 36.746 16.987 35.646 15.587 L 12.496 38.687 C 13.829 39.887 15.363 40.762 17.096 41.312 C 18.829 41.862 20.613 42.137 22.446 42.137 Z M 9.296 35.437 L 32.346 12.337 C 30.913 11.237 29.363 10.412 27.696 9.862 C 26.029 9.312 24.279 9.037 22.446 9.037 C 17.846 9.037 13.938 10.629 10.721 13.812 C 7.504 16.995 5.896 20.887 5.896 25.487 C 5.896 27.32 6.204 29.087 6.821 30.787 C 7.438 32.487 8.263 34.037 9.296 35.437 Z"
-  ) !important;
+  d: path("M 22.446 46.837 C 19.513 46.837 16.754 46.279 14.171 45.162 C 11.588 44.045 9.329 42.52 7.396 40.587 C 5.463 38.654 3.946 36.395 2.846 33.812 C 1.746 31.229 1.196 28.454 1.196 25.487 C 1.196 22.587 1.754 19.845 2.871 17.262 C 3.988 14.679 5.504 12.429 7.421 10.512 C 9.338 8.595 11.588 7.079 14.171 5.962 C 16.754 4.845 19.513 4.287 22.446 4.287 C 25.379 4.287 28.138 4.845 30.721 5.962 C 33.304 7.079 35.554 8.595 37.471 10.512 C 39.388 12.429 40.913 14.679 42.046 17.262 C 43.179 19.845 43.746 22.587 43.746 25.487 C 43.746 28.454 43.188 31.229 42.071 33.812 C 40.954 36.395 39.429 38.654 37.496 40.587 C 35.563 42.52 33.304 44.045 30.721 45.162 C 28.138 46.279 25.379 46.837 22.446 46.837 Z M 22.446 42.137 C 27.046 42.137 30.954 40.52 34.171 37.287 C 37.388 34.054 38.996 30.12 38.996 25.487 C 38.996 23.687 38.713 21.937 38.146 20.237 C 37.579 18.537 36.746 16.987 35.646 15.587 L 12.496 38.687 C 13.829 39.887 15.363 40.762 17.096 41.312 C 18.829 41.862 20.613 42.137 22.446 42.137 Z M 9.296 35.437 L 32.346 12.337 C 30.913 11.237 29.363 10.412 27.696 9.862 C 26.029 9.312 24.279 9.037 22.446 9.037 C 17.846 9.037 13.938 10.629 10.721 13.812 C 7.504 16.995 5.896 20.887 5.896 25.487 C 5.896 27.32 6.204 29.087 6.821 30.787 C 7.438 32.487 8.263 34.037 9.296 35.437 Z"
+    ) !important;
   fill: hsl(0, 100%, 50%) !important;
 }
 
@@ -151,29 +154,30 @@ html[data-hns-hide-symbols="true"] .hns-container {
 }
 
 .hns-block-attribute-toggle {
-  background: hsl(0, 0%, 100%, 0) !important;
-  color: hsl(0, 0%, 100%) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .hns-block-attribute-toggle:hover {
-  background: hsl(0, 0%, 100%, 0.2) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
 }
 
 .hns-block-attribute-toggle:active {
-  background: hsl(0, 0%, 100%, 0.3) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
 }
 
 .hns-block-attribute-toggle[data-hns-blocked-attribute] {
-  background: hsl(0, 0%, 100%, 1) !important;
-  color: hsl(0, 0%, 0%) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2) !important;
+  color: #0f172a !important;
 }
 
 .hns-block-attribute-toggle[data-hns-blocked-attribute]:hover {
-  background: hsl(0, 0%, 100%, 0.8) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
 }
 
 .hns-block-attribute-toggle[data-hns-blocked-attribute]:active {
-  background: hsl(0, 0%, 100%, 0.7) !important;
+  background: rgba(255, 255, 255, 0.75) !important;
 }
 
 .hns-block-attribute-toggle[data-hns-attribute="promotionalStatus"] {
@@ -259,27 +263,25 @@ html[data-hns-hide-symbols="true"] .hns-container {
 
 .hns-block-attribute-toggle-hidden-indicator {
   align-items: center !important;
-  background: hsl(0, 0%, 50%) !important;
-  border-radius: 12px !important;
-  color: hsl(0, 0%, 100%) !important;
+  background: #2563eb !important;
+  border-radius: 9999px !important;
+  color: #ffffff !important;
   display: grid !important;
   font-size: 10px !important;
+  font-weight: 600 !important;
   height: var(--hidden-indicator-height) !important;
+  letter-spacing: 0.025em !important;
   position: absolute !important;
   text-align: center !important;
-  top: calc(
-    60% + (var(--hidden-indicator-height) * 0.5) + var(--gap)
-  ) !important;
-  width: 53.4px !important;
+  top: calc(58% + (var(--hidden-indicator-height) * 0.5) + var(--gap)) !important;
+  width: 58px !important;
 }
 
-.hns-container[data-hns-job-board-id="indeed"]
-  .hns-block-attribute-toggle-hidden-indicator {
+.hns-container[data-hns-job-board-id="indeed"] .hns-block-attribute-toggle-hidden-indicator {
   line-height: 1 !important;
 }
 
-.hns-block-attribute-toggle[data-hns-blocked-attribute]
-  .hns-block-attribute-toggle-hidden-indicator {
+.hns-block-attribute-toggle[data-hns-blocked-attribute] .hns-block-attribute-toggle-hidden-indicator {
   opacity: 1 !important;
   transition: opacity 200ms ease-out 100ms, transform 200ms ease-out !important;
 }
@@ -289,13 +291,8 @@ html[data-hns-hide-symbols="true"] .hns-container {
   transition: opacity 200ms ease-out, transform 200ms ease-out !important;
 }
 
-.hns-block-attribute-toggle[data-hns-blocked-attribute]
-  .hns-block-attribute-toggle-attribute,
-.hns-block-attribute-toggle[data-hns-blocked-attribute]
-  .hns-block-attribute-toggle-text,
-.hns-block-attribute-toggle[data-hns-blocked-attribute]
-  .hns-block-attribute-toggle-hidden-indicator {
-  transform: translateY(
-    calc((var(--hidden-indicator-height) + var(--gap)) * -0.5)
-  ) !important;
+.hns-block-attribute-toggle[data-hns-blocked-attribute] .hns-block-attribute-toggle-attribute,
+.hns-block-attribute-toggle[data-hns-blocked-attribute] .hns-block-attribute-toggle-text,
+.hns-block-attribute-toggle[data-hns-blocked-attribute] .hns-block-attribute-toggle-hidden-indicator {
+  transform: translateY(calc((var(--hidden-indicator-height) + var(--gap)) * -0.5)) !important;
 }
