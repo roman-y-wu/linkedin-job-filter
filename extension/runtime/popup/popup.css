@@ -80,6 +80,33 @@
   --transition-normal: 200ms ease;
 }
 
+/* Claude.ai Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --claude-bg: #1a1a1a;
+    --claude-bg-secondary: #2a2a2a;
+    --claude-bg-tertiary: #3a3a3a;
+
+    --claude-text: #f5f5f5;
+    --claude-text-secondary: #a0a0a0;
+    --claude-text-muted: #6b6b6b;
+
+    --claude-border: #3a3a3a;
+
+    --claude-orange-light: #2d2520;
+    --claude-orange-subtle: #352a24;
+
+    --claude-success-bg: #0d2818;
+    --claude-danger-bg: #2d1515;
+    --claude-warning-bg: #2d2510;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  }
+
+}
+
 * {
   user-select: none;
   box-sizing: border-box;
@@ -131,24 +158,8 @@ header {
   background: var(--claude-bg);
   border-bottom: 1px solid var(--claude-border);
   display: flex;
-  gap: 10px;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 12px 16px;
-}
-
-header > img {
-  height: 28px;
-  width: 28px;
-}
-
-.hide-n-seek-title {
-  color: var(--claude-text);
-  flex: 1;
-  font: 600 17px "Open Sans", sans-serif;
-  letter-spacing: -0.3px;
-  line-height: 1;
-  margin: 0;
-  text-align: left;
 }
 
 #settings-toggle {
@@ -266,12 +277,9 @@ html:has(#request-permissions[data-permissions-needed]) {
   height: 9rem;
 }
 
-/* Job Board Selection */
+/* Job Board Selection - hidden since only LinkedIn is supported */
 .job-board-search-options-container {
-  align-items: center;
-  display: grid;
-  gap: 8px;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: none;
 }
 
 .job-board-search-option-container {
@@ -801,6 +809,11 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Hide sponsor button/link if present */
+[href*="buymeacoffee.com/hide.n.seek"] {
+  display: none !important;
+}
+
 /* Help Settings Links */
 #help-settings {
   font-size: 13px;
@@ -812,4 +825,27 @@ a:hover {
 
 #help-settings a {
   display: block;
+}
+
+/* Dark mode button overrides - must come after button definitions */
+@media (prefers-color-scheme: dark) {
+  .black-button {
+    background: #1f2937;
+  }
+
+  .black-button:hover {
+    background: #374151;
+  }
+
+  .black-button:active {
+    background: #4b5563;
+  }
+
+  .gray-button {
+    background: #4b5563;
+  }
+
+  .gray-button:hover {
+    background: #6b7280;
+  }
 }

@@ -11,7 +11,7 @@ const backup = async function () {
     }, "")
   );
   const dataUri = `data:application/json;base64,${base64Storage}`;
-  const fileName = `hide-n-seek-backup-${Date.now()}.json`;
+  const fileName = `hide-linkedin-jobs-backup-${Date.now()}.json`;
 
   download(dataUri, fileName);
 };

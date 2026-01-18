@@ -29,7 +29,7 @@ import { JobBoardPopup } from "./classes/job-board-popup.js";
   } else if (originPermissions === false) {
     const permissionsButton = document.querySelector("#request-permissions");
     permissionsButton.setAttribute("data-permissions-needed", "");
-    permissionsButton.textContent = `Enable Hide n' Seek on ${jobBoard.name}`;
+    permissionsButton.textContent = `Enable Hide LinkedIn Jobs on ${jobBoard.name}`;
     permissionsButton.addEventListener("click", () =>
       requestOriginPermissions(jobBoard.origins)
     );

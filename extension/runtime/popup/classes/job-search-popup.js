@@ -9,22 +9,6 @@ class JobSearchPopup {
   static jobBoardSelectorElements = [
     {
       label: document.querySelector(
-        "label.job-board-search-option-container[data-job-board-id='glassdoor']"
-      ),
-      input: document.querySelector(
-        "label.job-board-search-option-container[data-job-board-id='glassdoor'] > input"
-      ),
-    },
-    {
-      label: document.querySelector(
-        "label.job-board-search-option-container[data-job-board-id='indeed']"
-      ),
-      input: document.querySelector(
-        "label.job-board-search-option-container[data-job-board-id='indeed'] > input"
-      ),
-    },
-    {
-      label: document.querySelector(
         "label.job-board-search-option-container[data-job-board-id='linkedIn']"
       ),
       input: document.querySelector(
@@ -50,22 +34,6 @@ class JobSearchPopup {
   );
 
   static jobBoardSearch = {
-    glassdoor: {
-      getUrl(responseUrl, searchQuery) {
-        const encodedSearchQuery = searchQuery.trim().replace(/\s+/g, "-");
-        const url = new URL(responseUrl);
-        return `${url.origin}/Job/${encodedSearchQuery}-jobs-SRCH_KO0,${encodedSearchQuery.length}.htm`;
-      },
-    },
-    indeed: {
-      getUrl(responseUrl, searchQuery) {
-        const queryString = new URLSearchParams([
-          ["q", searchQuery],
-        ]).toString();
-        const url = new URL(responseUrl);
-        return `${url.origin}/jobs/?${queryString}`;
-      },
-    },
     linkedIn: {
       getUrl(responseUrl, searchQuery) {
         const queryString = new URLSearchParams([
@@ -88,7 +56,7 @@ class JobSearchPopup {
       hasOriginPermissions(jobBoard.origins).then((result) => {
         this.hasOriginPermissions = result;
         if (!this.hasOriginPermissions) {
-          this.requestPermissionsButton.textContent = `Enable Hide n' Seek on ${jobBoard.name}`;
+          this.requestPermissionsButton.textContent = `Enable Hide LinkedIn Jobs on ${jobBoard.name}`;
           this.jobSearchContainer.setAttribute("data-permissions-needed", "");
         } else {
           this.jobSearchContainer.removeAttribute("data-permissions-needed");

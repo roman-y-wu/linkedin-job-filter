@@ -37,7 +37,7 @@ const updateBadge = async (tab, { title, text, backgroundColor } = {}) => {
 
     title =
       title ||
-      "Hide n' Seek" +
+      "Hide LinkedIn Jobs" +
         (tabStatus.hasListings
           ? `\n\n${tabStatus.blockedJobsCount} job${
               tabStatus.blockedJobsCount === 1 ? "" : "s"
@@ -95,7 +95,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   const originPermissions = await hasOriginPermissions(jobBoard.origins);
   if (!originPermissions) {
     updateBadge(tab, {
-      title: `Hide n' Seek needs to be enabled on ${jobBoard.name}`,
+      title: `Hide LinkedIn Jobs needs to be enabled on ${jobBoard.name}`,
       text: "!",
       backgroundColor: [255, 255, 0, 255],
     });

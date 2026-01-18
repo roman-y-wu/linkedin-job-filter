@@ -40,7 +40,7 @@ restoreButton.addEventListener("click", async () => {
 });
 
 const disableButton = (button, jobBoard) => {
-  button.innerHTML = `Hide n' Seek is enabled on <b>${jobBoard.name}</b>`;
+  button.innerHTML = `Hide LinkedIn Jobs is enabled on <b>${jobBoard.name}</b>`;
   button.classList.add("enabled");
   button.classList.remove("green-button");
   button.disabled = true;
@@ -54,7 +54,7 @@ jobBoards.forEach((jobBoard) => {
       disableButton(button, jobBoard);
     } else {
       button.classList.add("green-button");
-      button.innerHTML = `Click to enable Hide n' Seek on <b>${jobBoard.name}</b>`;
+      button.innerHTML = `Click to enable Hide LinkedIn Jobs on <b>${jobBoard.name}</b>`;
       button.addEventListener("click", async () => {
         const permissionsGranted = await requestOriginPermissions(
           jobBoard.origins
