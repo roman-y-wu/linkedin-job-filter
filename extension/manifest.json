@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Hide LinkedIn Jobs",
   "short_name": "Hide LinkedIn Jobs",
-  "description": "Hide promoted jobs, companies, and keywords on LinkedIn job search.",
+  "description": "Filter out unwanted job listings on LinkedIn by company, keyword, or promoted status.",
   "version": "8.2.0",
   "icons": {
     "16": "/assets/images/hide-n-seek-icon-16.png",
