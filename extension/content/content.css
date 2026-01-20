@@ -117,11 +117,11 @@ html[data-hns-hide-symbols="true"] .hns-container {
   gap: 4px !important;
   height: 28px !important;
   justify-content: center !important;
-  left: 8px !important;
+  left: 4px !important;
   padding: 0 10px !important;
   pointer-events: auto !important;
   position: absolute !important;
-  top: 84px !important;
+  top: 76px !important;
   transition: background 150ms ease-out !important;
   white-space: nowrap !important;
   width: 72px !important;
