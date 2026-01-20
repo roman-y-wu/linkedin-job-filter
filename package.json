@@ -1,0 +1,8 @@
+{
+  "name": "hide-linkedin-jobs",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-server.js"
+  }
+}
