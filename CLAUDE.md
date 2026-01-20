@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Hide n' Seek is a browser extension (Chrome/Firefox) that hides unwanted job listings on LinkedIn, Indeed, and Glassdoor. Built with vanilla JavaScript using Manifest V3.
+Hide LinkedIn Jobs is a browser extension (Chrome/Firefox) that hides unwanted job listings on LinkedIn, Indeed, and Glassdoor. Built with vanilla JavaScript using Manifest V3.
 
 ## Development
 
