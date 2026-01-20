@@ -8,6 +8,7 @@ const hnsContainer = {
           <svg viewBox="1.196 4.287 42.55 42.55">
             <path/>
           </svg>
+          <span>Block</span>
         </button>
       </div>
       <div class="hns-blocked-job toggles"></div>

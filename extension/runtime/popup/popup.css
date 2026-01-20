@@ -260,9 +260,48 @@ html:not([data-job-board-id]) .options-for-job-search {
   display: flex;
 }
 
-/* Permissions Button */
+/* Permissions Request Container */
+#permissions-request-container {
+  align-items: center;
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+html:has(#request-permissions[data-permissions-needed]) #permissions-request-container {
+  display: flex;
+}
+
+.permissions-icon {
+  align-items: center;
+  background: var(--claude-orange-light);
+  border-radius: 50%;
+  color: var(--claude-orange);
+  display: flex;
+  height: 56px;
+  justify-content: center;
+  width: 56px;
+}
+
+.permissions-icon svg {
+  height: 28px;
+  width: 28px;
+}
+
+.permissions-description {
+  color: var(--claude-text-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 200px;
+}
+
 #request-permissions {
   display: none;
+  width: 100%;
 }
 
 #request-permissions[data-permissions-needed] {
@@ -274,7 +313,7 @@ html:has(#request-permissions[data-permissions-needed]) .options-for-job-search 
 }
 
 html:has(#request-permissions[data-permissions-needed]) {
-  height: 9rem;
+  height: 13rem;
 }
 
 /* Job Board Selection - hidden since only LinkedIn is supported */
