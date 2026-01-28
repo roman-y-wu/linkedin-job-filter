@@ -32,6 +32,12 @@ const jobListings = async (jobBoard) => {
 
   const addHns = (jobListing) => {
     jobListing.setAttribute("data-hns-job-listing", "");
+
+    // Detect LinkedIn dismissed jobs
+    if (jobBoard.id === "linkedIn") {
+      observeDismissedState(jobListing);
+    }
+
     const hns = ui.createComponent("hns-container", jobBoard.id);
     hns.jobListing = jobListing;
     hnsMap.set(jobListing, hns);
@@ -42,6 +48,27 @@ const jobListings = async (jobBoard) => {
 
   const removeHns = (jobListing) => {
     hnsMap.delete(jobListing);
+  };
+
+  const observeDismissedState = (jobListing) => {
+    const checkDismissed = () => {
+      const isDismissed = jobListing.textContent.includes("We won't show you this job again") ||
+                          jobListing.textContent.includes("won't show you this job");
+
+      if (isDismissed) {
+        jobListing.setAttribute("data-hns-linkedin-dismissed", "");
+      } else {
+        jobListing.removeAttribute("data-hns-linkedin-dismissed");
+      }
+    };
+
+    checkDismissed();
+
+    new MutationObserver(checkDismissed).observe(jobListing, {
+      childList: true,
+      subtree: true,
+      characterData: true
+    });
   };
 
   const storage = await chrome.storage.local.get();

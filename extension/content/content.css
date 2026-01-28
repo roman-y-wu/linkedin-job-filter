@@ -10,6 +10,11 @@ html[data-hns-hide-symbols="true"] .hns-container {
   display: none !important;
 }
 
+/* Hide Block button on LinkedIn dismissed jobs */
+[data-hns-job-listing][data-hns-linkedin-dismissed] .hns-unblocked-job {
+  display: none !important;
+}
+
 .hns-container {
   all: unset !important;
   background: transparent !important;
