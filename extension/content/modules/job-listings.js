@@ -169,5 +169,30 @@ const jobListings = async (jobBoard) => {
     )
   );
 
+  // Listen for French-only toggle changes
+  const frenchOnlyStorageKey = `JobDisplayManager.${jobBoard.id}.hideFrenchOnlyJobs`;
+  chrome.storage.local.onChanged.addListener((changes) => {
+    if (!Object.hasOwn(changes, frenchOnlyStorageKey)) return;
+
+    const isEnabled = changes[frenchOnlyStorageKey].newValue;
+
+    if (!isEnabled) {
+      // Unblock all French-only jobs when toggle is disabled
+      for (const hns of hnsMap.values()) {
+        const toggle = hns.getToggle("frenchOnly", "French-only");
+        if (toggle) {
+          toggle.toggleOff();
+          hns.removeToggle("frenchOnly", "French-only");
+          toggle.element.remove();
+        }
+      }
+    } else {
+      // Re-scan all jobs when toggle is enabled
+      for (const [jobListing, hns] of hnsMap.entries()) {
+        checkFrenchOnlyJob(jobListing, hns);
+      }
+    }
+  });
+
   return { addHns, removeHns, setDisplayPreference };
 };
