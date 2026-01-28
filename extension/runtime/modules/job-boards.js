@@ -36,6 +36,10 @@ const jobBoards = (() => {
       name: "LinkedIn",
       listingSelector:
         "li:has(.job-card-container, .job-search-card, .job-card-job-posting-card-wrapper, [data-job-id]), div > [data-view-name='job-card'] > a, div:has(> [data-view-name='job-search-job-card'])",
+      locationSelector:
+        ".job-card-container__metadata-item, .artdeco-entity-lockup__caption, .job-search-card__location, .job-card-container__metadata-wrapper li, [data-view-name='job-card'] .artdeco-entity-lockup__caption",
+      titleSelector:
+        ".job-card-list__title, .job-card-container__link, .base-search-card__title, .artdeco-entity-lockup__title, .job-card-job-posting-card-wrapper__title, [data-view-name='job-card'] .artdeco-entity-lockup__title a",
       logo: {
         src: "/assets/images/linkedin-logo.svg",
         alt: "LinkedIn's logo",
