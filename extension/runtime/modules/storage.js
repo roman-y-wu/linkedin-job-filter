@@ -84,8 +84,10 @@ const updateSyncStorage = debounce(async (changes) => {
     chrome.storage.sync.get(),
   ]);
 
-  for (const value of Object.values(localStorage)) {
-    if (Array.isArray(value)) value.sort();
+  for (const [key, value] of Object.entries(localStorage)) {
+    if (Array.isArray(value)) {
+      localStorage[key] = [...new Set(value)].sort();
+    }
   }
 
   const chunkedLocalStorage = chunkStorage(localStorage);
@@ -151,8 +153,10 @@ const updateLocalStorage = async (changes) => {
     ...deChunkedSyncStorage,
   };
 
-  for (const value of Object.values(newLocalStorage)) {
-    if (Array.isArray(value)) value.sort();
+  for (const [key, value] of Object.entries(newLocalStorage)) {
+    if (Array.isArray(value)) {
+      newLocalStorage[key] = [...new Set(value)].sort();
+    }
   }
 
   await chrome.storage.local.remove(localKeysToRemove);
