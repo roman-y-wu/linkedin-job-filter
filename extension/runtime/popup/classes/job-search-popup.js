@@ -56,7 +56,7 @@ class JobSearchPopup {
       hasOriginPermissions(jobBoard.origins).then((result) => {
         this.hasOriginPermissions = result;
         if (!this.hasOriginPermissions) {
-          this.requestPermissionsButton.textContent = `Enable Hide LinkedIn Jobs on ${jobBoard.name}`;
+          this.requestPermissionsButton.textContent = `Enable LinkedIn Job Filter on ${jobBoard.name}`;
           this.jobSearchContainer.setAttribute("data-permissions-needed", "");
         } else {
           this.jobSearchContainer.removeAttribute("data-permissions-needed");

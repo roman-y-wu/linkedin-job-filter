@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Hide LinkedIn Jobs is a browser extension (Chrome/Firefox) that hides unwanted job listings on LinkedIn, Indeed, and Glassdoor. Built with vanilla JavaScript using Manifest V3.
+LinkedIn Job Filter is a browser extension (Chrome/Firefox) that filters unwanted job listings on LinkedIn. Built with vanilla JavaScript using Manifest V3.
 
 ## Development
 

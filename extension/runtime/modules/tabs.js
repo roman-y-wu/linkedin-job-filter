@@ -37,12 +37,11 @@ const updateBadge = async (tab, { title, text, backgroundColor } = {}) => {
 
     title =
       title ||
-      "Hide LinkedIn Jobs" +
-        (tabStatus.hasListings
-          ? `\n\n${tabStatus.blockedJobsCount} job${
-              tabStatus.blockedJobsCount === 1 ? "" : "s"
-            } blocked on this page\n`
-          : "");
+      "LinkedIn Job Filter" +
+      (tabStatus.hasListings
+        ? `\n\n${tabStatus.blockedJobsCount} job${tabStatus.blockedJobsCount === 1 ? "" : "s"
+        } blocked on this page\n`
+        : "");
     text =
       text ||
       (tabStatus.hasListings ? tabStatus.blockedJobsCount.toString() : "");
@@ -63,7 +62,7 @@ const updateBadge = async (tab, { title, text, backgroundColor } = {}) => {
         color: backgroundColor,
       }),
     ]);
-  } catch {}
+  } catch { }
 };
 
 const updateBadges = (changes) =>
@@ -95,7 +94,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   const originPermissions = await hasOriginPermissions(jobBoard.origins);
   if (!originPermissions) {
     updateBadge(tab, {
-      title: `Hide LinkedIn Jobs needs to be enabled on ${jobBoard.name}`,
+      title: `LinkedIn Job Filter needs to be enabled on ${jobBoard.name}`,
       text: "!",
       backgroundColor: [255, 255, 0, 255],
     });

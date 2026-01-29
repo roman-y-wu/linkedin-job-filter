@@ -1,10 +1,10 @@
-# **Hide LinkedIn Jobs**
+# **LinkedIn Job Filter**
 
 Filter out unwanted job listings on LinkedIn by company, keyword, or promoted status.
 
 ## **Usage**
 
-- The first time you use Hide LinkedIn Jobs, you'll need to grant permissions. You'll see a yellow alert notification bubble next to the extension icon on your browser's toolbar. Click the icon and then click "Enable Hide LinkedIn Jobs on LinkedIn".
+- The first time you use LinkedIn Job Filter, you'll need to grant permissions. You'll see a yellow alert notification bubble next to the extension icon on your browser's toolbar. Click the icon and then click "Enable LinkedIn Job Filter on LinkedIn".
 
 - "Block" buttons are added next to every listing. Click to hide unwanted jobs. By default, listings are hidden behind an overlay. You can completely remove them from view by enabling "Do not display hidden jobs".
 

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Hide LinkedIn Jobs",
-  "short_name": "Hide LinkedIn Jobs",
+  "name": "LinkedIn Job Filter",
+  "short_name": "LinkedIn Job Filter",
   "description": "Filter out unwanted job listings on LinkedIn by company, keyword, or promoted status.",
   "version": "8.2.0",
   "icons": {
@@ -10,12 +10,16 @@
     "48": "/assets/images/hide-n-seek-icon-48.png",
     "128": "/assets/images/hide-n-seek-icon-128.png"
   },
-  "permissions": ["scripting", "storage", "tabs"],
+  "permissions": [
+    "scripting",
+    "storage",
+    "tabs"
+  ],
   "optional_host_permissions": [
     "https://*.linkedin.com/*"
   ],
   "action": {
-    "default_title": "Hide LinkedIn Jobs",
+    "default_title": "LinkedIn Job Filter",
     "default_popup": "/runtime/popup/popup.html",
     "default_icon": {
       "16": "/assets/images/hide-n-seek-icon-16.png",
