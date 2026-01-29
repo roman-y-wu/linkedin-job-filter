@@ -324,7 +324,7 @@ html[data-hns-hide-symbols="true"] .hns-container {
 /* Dark mode - dark overlay for dark LinkedIn */
 @media (prefers-color-scheme: dark) {
   .hns-blocked-job {
-    background: rgba(15, 23, 42, 0.85) !important;
+    background: rgba(33, 37, 43, 0.85) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
   }

@@ -10,10 +10,19 @@ Hide LinkedIn Jobs is a browser extension (Chrome/Firefox) that hides unwanted j
 
 **No build process** - Pure ES6 modules, no bundler or npm dependencies.
 
+**Development sync server:**
+```bash
+npm run sync  # Start file watcher for live reload during development
+```
+
 **To test changes:**
 1. Load extension in Chrome: `chrome://extensions/` → Enable "Developer mode" → "Load unpacked" → select `extension/` folder
 2. Click refresh icon on extension card after code changes
 3. Refresh the job board page
+
+**Firefox testing:**
+1. Copy `other-manifests/firefox/manifest.json` to `extension/` (or symlink)
+2. Open `about:debugging#/runtime/this-firefox` → "Load Temporary Add-on" → select `extension/manifest.json`
 
 **Manual testing required** - Test on actual job board pages (LinkedIn Jobs, Indeed, Glassdoor).
 
@@ -37,10 +46,10 @@ Content Scripts (job board pages)     Popup UI (extension icon click)
 
 ### Core Files
 
-- `runtime/modules/job-boards.js` - Job board definitions with CSS selectors and attribute configs
-- `content/classes/attribute-blocker.js` - Core blocking logic per attribute type
-- `content/classes/element-collector.js` - DOM mutation observer for detecting job listings
-- `runtime/modules/storage.js` - Storage with chunking to handle quota limits
+- `extension/runtime/modules/job-boards.js` - Job board definitions with CSS selectors and attribute configs
+- `extension/content/classes/attribute-blocker.js` - Core blocking logic per attribute type
+- `extension/content/classes/element-collector.js` - DOM mutation observer for detecting job listings
+- `extension/runtime/modules/storage.js` - Storage with chunking to handle quota limits
 
 ## Key Patterns
 
@@ -106,3 +115,7 @@ Follow the `RemoveHiddenJobsManager` pattern:
 3. Import/instantiate in `job-board-popup.js`
 4. Add DOM attribute handling in `content/modules/job-listings.js`
 5. Add CSS rule in `content/content.css`
+
+## Commit Conventions
+
+Use Conventional Commit prefixes: `feat:`, `fix:`, `style:`, `docs:`. See [AGENTS.md](AGENTS.md) for full guidelines.
